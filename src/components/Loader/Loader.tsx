@@ -1,4 +1,3 @@
-import css from "./Loader.module.css";
 import { FC } from "react";
 import { Grid } from "react-loader-spinner";
 
