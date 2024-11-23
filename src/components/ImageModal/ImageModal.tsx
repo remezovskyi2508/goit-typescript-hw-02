@@ -12,7 +12,7 @@ const ImageModal: FC<ImgModalProps> = ({ isOpen, onRequestClose, selectedImg }) 
       contentLabel="Image Modal"
       className={css.customModalContent}
       overlayClassName={css.overlay}
-      appElement={document.getElementById('root')}
+      appElement={document.getElementById('root') || undefined}
     >
       {selectedImg && (
         <>

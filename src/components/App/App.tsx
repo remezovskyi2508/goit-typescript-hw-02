@@ -40,7 +40,6 @@ const App: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(0);
   const [hasMoreImages, setHasMoreImages] = useState<boolean>(false);
   // Value for URL response
   const params = {
@@ -82,7 +81,6 @@ const App: FC = () => {
         );
         setImages((prevImages) => [...(prevImages ?? []), ...data.results]);
         const totalPagesCalc = Math.ceil(data.total / params.per_page);
-        setTotalPages(totalPagesCalc);
         setHasMoreImages(page < totalPagesCalc);
       } catch (error) {
         setIsError(true);
@@ -94,6 +92,7 @@ const App: FC = () => {
     if (searchTopic) {
       fetchImages();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTopic, page]);
 
   return (
